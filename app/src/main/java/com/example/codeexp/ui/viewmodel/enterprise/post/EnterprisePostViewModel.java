@@ -1,4 +1,4 @@
-package com.example.codeexp.ui.viewmodel.enterprise;
+package com.example.codeexp.ui.viewmodel.enterprise.post;
 
 import com.example.codeexp.base.BaseViewModel;
 

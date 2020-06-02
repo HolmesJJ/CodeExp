@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.codeexp.ui.viewmodel.enterprise.EnterprisePostViewModel" />
+            type="com.example.codeexp.ui.viewmodel.enterprise.post.EnterprisePostViewModel" />
     </data>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                         android:layout_marginTop="26dp"
                         android:text="@string/basic_information"
                         android:textColor="@color/postSubTitle"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/sp_15" />
 
                     <com.example.codeexp.ui.widget.ItemTextView
                         android:id="@+id/target"
@@ -54,7 +54,7 @@
                         android:layout_height="wrap_content" />
 
                     <com.example.codeexp.ui.widget.ItemTextView
-                        android:id="@+id/number_of_employee"
+                        android:id="@+id/number_of_employees"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
@@ -80,7 +80,7 @@
                         android:layout_marginTop="26dp"
                         android:text="@string/working_date"
                         android:textColor="@color/postSubTitle"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/sp_15" />
 
                     <com.example.codeexp.ui.widget.ItemTextView
                         android:id="@+id/start_date"
@@ -100,7 +100,7 @@
                         android:layout_marginTop="26dp"
                         android:text="@string/salary"
                         android:textColor="@color/postSubTitle"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/sp_15" />
 
                     <com.example.codeexp.ui.widget.ItemTextView
                         android:id="@+id/min_of_salary"
@@ -111,7 +111,22 @@
                     <com.example.codeexp.ui.widget.ItemTextView
                         android:id="@+id/max_of_salary"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="26dp"
+                        android:text="@string/prepaid_salary"
+                        android:textColor="@color/postSubTitle"
+                        android:textSize="@dimen/sp_15" />
+
+                    <com.example.codeexp.ui.widget.ItemTextView
+                        android:id="@+id/total_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_9"
                         android:layout_marginBottom="@dimen/dp_28" />
 
                     <TextView

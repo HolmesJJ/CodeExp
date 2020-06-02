@@ -7,11 +7,15 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
+import com.example.codeexp.BR;
 import com.example.codeexp.R;
+import com.example.codeexp.base.BaseFragment;
+import com.example.codeexp.databinding.FragmentEnterpriseMineBinding;
+import com.example.codeexp.listener.OnMultiClickListener;
+import com.example.codeexp.ui.viewmodel.enterprise.mine.EnterpriseMineViewModel;
+import com.example.codeexp.util.ListenerUtils;
 
-import me.yokeyword.fragmentation.SupportFragment;
-
-public class EnterpriseMineFragment extends SupportFragment {
+public class EnterpriseMineFragment extends BaseFragment<FragmentEnterpriseMineBinding, EnterpriseMineViewModel> {
 
     public static EnterpriseMineFragment newInstance(){
         Bundle args = new Bundle();
@@ -20,16 +24,49 @@ public class EnterpriseMineFragment extends SupportFragment {
         return fragment;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_enterprise_mine, container, false);
-        initView(view);
-        return view;
+    public int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        return R.layout.fragment_enterprise_mine;
     }
 
-    private void initView(View view) {
+    @Override
+    public int initVariableId() {
 
+        return BR.viewModel;
+    }
+
+    @Override
+    public Class<EnterpriseMineViewModel> getViewModelClazz() {
+
+        return EnterpriseMineViewModel.class;
+    }
+
+    @Override
+    public void initData() {
+
+        super.initData();
+
+        mBinding.toolbar.setTitle(_mActivity.getString(R.string.mine));
+        mBinding.ivAvatar.setImageResource(R.mipmap.ic_launcher);
+        mBinding.tvName.setText("NUS PTE. LTD.");
+
+        mBinding.type.setLeftText(R.string.type).setBottomLineVisible(false).setRightImage(android.R.color.transparent);
+        mBinding.numberOfEmployees.setLeftText(R.string.number_of_employees).setBottomLineVisible(true).setRightImage(android.R.color.transparent);
+
+        ListenerUtils.setOnClickListener(mBinding.tvLogout, new OnMultiClickListener() {
+            @Override
+            public void onMultiClick(View v) {
+
+            }
+        });
+
+        ListenerUtils.setOnClickListener(mBinding.tvExit, new OnMultiClickListener() {
+            @Override
+            public void onMultiClick(View v) {
+
+            }
+        });
     }
 
     @Override

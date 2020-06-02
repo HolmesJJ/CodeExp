@@ -1,51 +1,74 @@
 package com.example.codeexp;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.codeexp.base.BaseActivity;
 import com.example.codeexp.config.Config;
 import com.example.codeexp.constants.SpUtilValueConstants;
+import com.example.codeexp.databinding.ActivityLoginBinding;
 import com.example.codeexp.listener.OnMultiClickListener;
+import com.example.codeexp.util.ListenerUtils;
+import com.example.codeexp.util.PermissionsUtils;
 
-public class LoginActivity extends AppCompatActivity {
+import pub.devrel.easypermissions.AfterPermissionGranted;
 
-    private ProgressBar pbLogin;
-    private RadioGroup rgType;
-    private EditText etUsername;
-    private EditText etPassword;
-    private Button btnLogin;
+public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
+
+    private final static int REC_PERMISSION = 100;
+    private String[] PERMISSIONS = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_NETWORK_STATE,
+            Manifest.permission.ACCESS_WIFI_STATE,
+            Manifest.permission.INTERNET,
+            Manifest.permission.CAMERA
+    };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        initView();
-        checkType();
-        setListener();
+    public int initContentView(Bundle savedInstanceState) {
+
+        return R.layout.activity_login;
     }
 
-    private void initView() {
-        pbLogin = (ProgressBar) findViewById(R.id.pb_login);
-        rgType = (RadioGroup) findViewById(R.id.rg_type);
-        etUsername = (EditText) findViewById(R.id.et_username);
-        etPassword = (EditText) findViewById(R.id.et_password);
-        btnLogin = (Button) findViewById(R.id.btn_login);
+    @Override
+    public int initVariableId() {
+
+        return BR.viewModel;
+    }
+
+    @Override
+    public Class<LoginViewModel> getViewModelClazz() {
+
+        return LoginViewModel.class;
+    }
+
+    @AfterPermissionGranted(REC_PERMISSION)
+    @Override
+    public void initData() {
+
+        super.initData();
+
+        PermissionsUtils.doSomeThingWithPermission(this, () -> {
+            if (mViewModel != null) {
+                mViewModel.initData();
+            }
+        }, PERMISSIONS, REC_PERMISSION, R.string.rationale_init);
+
+        checkType();
+        setListener();
     }
 
     private void checkType() {
         switch (Config.sLoginMode) {
             case SpUtilValueConstants.LOGIN_MODE_ENTERPRISE:
-                rgType.check(R.id.rb_enterprise);
+                mBinding.rgType.check(R.id.rb_enterprise);
                 break;
             case SpUtilValueConstants.LOGIN_MODE_INDIVIDUAL:
-                rgType.check(R.id.rb_individual);
+                mBinding.rgType.check(R.id.rb_individual);
                 break;
             default:
                 break;
@@ -53,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setListener() {
-        rgType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        mBinding.rgType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
@@ -68,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        btnLogin.setOnClickListener(new OnMultiClickListener() {
+        ListenerUtils.setOnClickListener(mBinding.btnLogin, new OnMultiClickListener() {
             @Override
             public void onMultiClick(View v) {
                 startMainActivity();

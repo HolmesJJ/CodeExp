@@ -1,21 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tc="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/colorWhite">
-
-    <com.example.codeexp.ui.widget.ToolBar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <RelativeLayout
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.codeexp.ui.viewmodel.enterprise.mine.EnterpriseMineViewModel" />
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?android:attr/actionBarSize">
+        xmlns:tc="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:background="@color/colorWhite">
+
+        <com.example.codeexp.ui.widget.ToolBar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?android:attr/actionBarSize">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/postBackground"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_avatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_120"
+                        android:layout_margin="20dp"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:layout_marginLeft="@dimen/dp_30"
+                        android:layout_marginRight="@dimen/dp_30"
+                        android:scaleType="fitCenter" />
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_30"
+                        android:layout_marginRight="@dimen/dp_30"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/sp_24" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="26dp"
+                        android:text="@string/basic_information"
+                        android:textColor="@color/postSubTitle"
+                        android:textSize="@dimen/sp_15" />
+
+                    <com.example.codeexp.ui.widget.ItemTextView
+                        android:id="@+id/type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_9" />
+
+                    <com.example.codeexp.ui.widget.ItemTextView
+                        android:id="@+id/number_of_employees"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp_28"/>
+
+                    <TextView
+                        android:id="@+id/tv_logout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:textSize="@dimen/sp_16"
+                        android:textColor="@color/colorAccent"
+                        android:text="@string/logout"
+                        android:gravity="center"
+                        android:background="@drawable/bg_ripple_item"
+                        android:padding="@dimen/dp_12" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_1"
+                        android:background="@color/lineBackground" />
+
+                    <TextView
+                        android:id="@+id/tv_exit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:textSize="@dimen/sp_16"
+                        android:textColor="@color/colorAccent"
+                        android:text="@string/exit"
+                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/dp_24"
+                        android:background="@drawable/bg_ripple_item"
+                        android:padding="@dimen/dp_12" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </RelativeLayout>
 
     </RelativeLayout>
-
-</RelativeLayout>
+</layout>

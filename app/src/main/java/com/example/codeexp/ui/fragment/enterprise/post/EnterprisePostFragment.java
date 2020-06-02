@@ -10,7 +10,7 @@ import com.example.codeexp.BR;
 import com.example.codeexp.R;
 import com.example.codeexp.base.BaseFragment;
 import com.example.codeexp.databinding.FragmentEnterprisePostBinding;
-import com.example.codeexp.ui.viewmodel.enterprise.EnterprisePostViewModel;
+import com.example.codeexp.ui.viewmodel.enterprise.post.EnterprisePostViewModel;
 import com.example.codeexp.ui.widget.dialog.RadioSelectDialog;
 import com.example.codeexp.ui.widget.dialog.TextInputDialog;
 
@@ -59,7 +59,7 @@ public class EnterprisePostFragment extends BaseFragment<FragmentEnterprisePostB
                 .setItemClickListener(() -> {
 
                 });
-        mBinding.numberOfEmployee.setLeftText(R.string.number_of_employees).setBottomLineVisible(false)
+        mBinding.numberOfEmployees.setLeftText(R.string.number_of_employees).setBottomLineVisible(false)
                 .setItemClickListener(() -> {
 
                 });
@@ -93,6 +93,8 @@ public class EnterprisePostFragment extends BaseFragment<FragmentEnterprisePostB
                 .setItemClickListener(() -> {
 
                 });
+
+        mBinding.totalAmount.setLeftText(R.string.total_amount).setBottomLineVisible(true).setRightImage(android.R.color.transparent);
     }
 
     @Override

@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">CodeExp</string>
 
+    <string name="exit_app_str">Press Again to Exit</string>
+
+    <string name="rationale_init">APP Needs some Permission</string>
+    <string name="permissions_denied_content_str">Permission Denied \nOpen Setting to Modify APP Permission</string>
+    <string name="need_permissions_str">Permission Required</string>
+
     <string name="home">Home</string>
     <string name="post">Post</string>
     <string name="check_in">Check In</string>
     <string name="mine">Mine</string>
+    <string name="detail">Detail</string>
 
     <string name="login">Login</string>
     <string name="enterprise">Enterprise</string>
@@ -21,10 +28,29 @@
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
     <string name="job_nature">Job Nature</string>
-    <string name="salary">Salary</string>
+    <string name="salary">Salary (S$)</string>
     <string name="min_of_salary">Min. of Salary</string>
     <string name="max_of_salary">Max. of Salary</string>
     <string name="expiration_date">Expiration Date</string>
+    <string name="prepaid_salary">Prepaid Salary</string>
+    <string name="total_amount">Total Amount</string>
+
+    <string name="name">Name</string>
+
+    <string name="upload_employees_information">Upload Employees Information</string>
+    <string name="upload">Upload</string>
+
+    <string name="type">Type</string>
+
+    <string name="contact">Contact</string>
+    <string name="email">Email</string>
+    <string name="bank_account">Bank Account</string>
+    <string name="staff_number">Staff Number</string>
+    <string name="accepted_job">Accepted Job</string>
+    <string name="accepted_job_detail">Accepted Job Detail</string>
+
+    <string name="logout">Logout</string>
+    <string name="exit">Exit</string>
 
     <string name="submit">Submit</string>
     <string name="confirm">Confirm</string>
