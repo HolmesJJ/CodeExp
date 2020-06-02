@@ -99,7 +99,7 @@ public class MainFragment extends SupportFragment {
         } else {
 
             mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_home, getString(R.string.home)))
-                    .addItem(new BottomBarTab(_mActivity, R.drawable.ic_checkin, getString(R.string.check_in)))
+                    .addItem(new BottomBarTab(_mActivity, R.drawable.ic_checkin, getString(R.string.check_in_out)))
                     .addItem(new BottomBarTab(_mActivity, R.drawable.ic_mine, getString(R.string.mine)));
         }
 

@@ -9,7 +9,9 @@
 
     <string name="home">Home</string>
     <string name="post">Post</string>
+    <string name="check_in_out">Check In / Out</string>
     <string name="check_in">Check In</string>
+    <string name="check_out">Check Out</string>
     <string name="mine">Mine</string>
     <string name="detail">Detail</string>
 
@@ -48,6 +50,9 @@
     <string name="staff_number">Staff Number</string>
     <string name="accepted_job">Accepted Job</string>
     <string name="accepted_job_detail">Accepted Job Detail</string>
+
+    <string name="on_duty">On Duty</string>
+    <string name="off_duty">Off Duty</string>
 
     <string name="logout">Logout</string>
     <string name="exit">Exit</string>
