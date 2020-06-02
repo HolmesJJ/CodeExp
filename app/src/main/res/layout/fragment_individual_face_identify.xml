@@ -23,7 +23,17 @@
             android:layout_height="match_parent"
             android:layout_marginTop="?android:attr/actionBarSize">
 
+            <com.otaliastudios.cameraview.CameraView
+                android:id="@+id/camera"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
+            <ImageView
+                android:id="@+id/iv_test"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_launcher"/>
 
         </RelativeLayout>
 

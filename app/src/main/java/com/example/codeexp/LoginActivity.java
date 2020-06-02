@@ -25,6 +25,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
             Manifest.permission.ACCESS_NETWORK_STATE,
             Manifest.permission.ACCESS_WIFI_STATE,
             Manifest.permission.INTERNET,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.RECORD_AUDIO,
             Manifest.permission.CAMERA
     };
 
