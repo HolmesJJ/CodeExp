@@ -54,6 +54,10 @@
     <string name="on_duty">On Duty</string>
     <string name="off_duty">Off Duty</string>
 
+    <string name="upload_success">Upload Success</string>
+    <string name="upload_failed">Upload Failed</string>
+    <string name="no_storage_found">No Storage Found</string>
+
     <string name="logout">Logout</string>
     <string name="exit">Exit</string>
 

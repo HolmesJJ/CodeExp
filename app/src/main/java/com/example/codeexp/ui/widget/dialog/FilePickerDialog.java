@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -400,7 +401,7 @@ public class FilePickerDialog extends Dialog implements AdapterView.OnItemClickL
         } else {
             super.show();
             if (strExternalStoragePath.equals("") || !new File(strExternalStoragePath).canRead()) {
-                ToastUtils.showShortSafe("66666666");
+                ToastUtils.showShortSafe(R.string.no_storage_found);
             } else {
                 positiveBtnNameStr = positiveBtnNameStr == null ?
                         context.getResources().getString(com.github.angads25.filepicker.R.string.choose_button_label) : positiveBtnNameStr;
@@ -469,31 +470,7 @@ public class FilePickerDialog extends Dialog implements AdapterView.OnItemClickL
     }
 
     public static String getExternalStorageWritable() {
-        File file = new File("/storage/emulated/0/");
-//        String strRet = "";
-//
-//        for (File file : fileList) {
-////            if (file.getAbsolutePath().toLowerCase().contains("emulated")) {
-////                continue;
-////            }
-////
-////            if (file.getAbsolutePath().toLowerCase().contains("usb")) {
-////                continue;
-////            }
-////
-////            if (file.getAbsolutePath().equals("/storage/self")) {
-////                continue;
-////            }
-////
-////            if(!file.getAbsolutePath().equalsIgnoreCase(Environment.getExternalStorageDirectory().getAbsolutePath()) &&
-////                    file.isDirectory() && file.canRead())
-////                strRet = file.getAbsolutePath();
-////            break;
-//            if(!(file.getName().equalsIgnoreCase("emulated")||file.getName().equalsIgnoreCase("self"))) {
-//                return file.getAbsolutePath();
-//            }
-//        }
 
-        return file.getAbsolutePath();
+        return Environment.getExternalStorageDirectory().getAbsolutePath();
     }
 }

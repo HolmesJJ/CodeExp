@@ -9,8 +9,11 @@ import androidx.annotation.Nullable;
 import com.example.codeexp.BR;
 import com.example.codeexp.R;
 import com.example.codeexp.base.BaseFragment;
+import com.example.codeexp.constants.Constants;
 import com.example.codeexp.databinding.FragmentEnterpriseDetailBinding;
 import com.example.codeexp.ui.viewmodel.enterprise.detail.EnterpriseDetailViewModel;
+import com.example.codeexp.ui.widget.dialog.FilePickerDialog;
+import com.example.codeexp.util.ToastUtils;
 import com.github.angads25.filepicker.model.DialogConfigs;
 import com.github.angads25.filepicker.model.DialogProperties;
 import com.snatik.storage.Storage;
@@ -106,11 +109,41 @@ public class EnterpriseDetailFragment extends BaseFragment<FragmentEnterpriseDet
         properties.root = new File("/");
         properties.error_dir = new File("/");
         properties.offset = new File("/");
-        properties.extensions = new String[]{};
+        properties.extensions = new String[]{"xlsx", "xls", "csv"};
         storage = new Storage(_mActivity);
     }
 
     private void showUploadDialog() {
 
+        FilePickerDialog dialog = new FilePickerDialog(_mActivity, properties);
+        dialog.setTitle("Select a File");
+        dialog.setDialogSelectionListener(new FilePickerDialog.DialogSelectionListener() {
+            @Override
+            public void onSelectedFilePaths(String[] files) {
+                File dir = new File(Constants.EMPLOYEES_INFO_PATH);
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                } else {
+                    String[] children = dir.list();
+                    for (int i = 0; i < children.length; i++) {
+                        new File(dir, children[i]).delete();
+                    }
+                }
+                String filename = files[0].substring(files[0].lastIndexOf("/") + 1);
+                File targetFile = new File(Constants.EMPLOYEES_INFO_PATH + File.separator + filename);
+                File sourceFile = new File(files[0]);
+                if (storage.copy(sourceFile.getAbsolutePath(), targetFile.getAbsolutePath())){
+                    ToastUtils.showShortSafe(R.string.upload_success);
+                } else {
+                    ToastUtils.showShortSafe(R.string.upload_failed);
+                }
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+        });
+        dialog.show();
     }
 }
