@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.codeexp.ui.widget.TouchEventTransferRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_48"
+    android:background="@drawable/bg_ripple_item"
+    android:descendantFocusability="blocksDescendants">
+
+    <View
+        android:id="@+id/top_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/lineBackground" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:gravity="center_vertical"
+            android:textColor="@color/itemLeftText"
+            android:textSize="@dimen/sp_16"
+            tools:text="Item" />
+
+        <com.example.codeexp.ui.widget.TouchEventTransferEditText
+            android:id="@+id/tv_right"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_14"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:paddingLeft="@dimen/dp_10"
+            android:singleLine="true"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:ellipsize="end"
+            android:background="@null"
+            android:textColor="@color/itemRightText"
+            android:textSize="@dimen/sp_15" />
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/dp_20"
+            android:src="@mipmap/ic_more" />
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_alignParentBottom="true"
+        android:background="@color/lineBackground" />
+</com.example.codeexp.ui.widget.TouchEventTransferRelativeLayout>

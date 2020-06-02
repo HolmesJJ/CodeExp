@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">CodeExp</string>
+
+    <string name="home">Home</string>
+    <string name="post">Post</string>
+    <string name="check_in">Check In</string>
+    <string name="mine">Mine</string>
+
+    <string name="login">Login</string>
+    <string name="enterprise">Enterprise</string>
+    <string name="individual">Individual</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+
+    <string name="basic_information">Basic Information</string>
+    <string name="target">Target</string>
+    <string name="position">Position</string>
+    <string name="number_of_employees">No. of Employees</string>
+    <string name="workplace">Workplace</string>
+    <string name="working_date">Working Date</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="job_nature">Job Nature</string>
+    <string name="salary">Salary</string>
+    <string name="min_of_salary">Min. of Salary</string>
+    <string name="max_of_salary">Max. of Salary</string>
+    <string name="expiration_date">Expiration Date</string>
+
+    <string name="submit">Submit</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="copy_success">Copy Success</string>
 </resources>

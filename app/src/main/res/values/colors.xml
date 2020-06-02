@@ -3,4 +3,23 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="tab_unselect">#c9c9c9</color>
+
+    <color name="lineBackground">#B3CCCCCC</color>
+    <color name="itemLeftText">#FF333333</color>
+    <color name="itemRightText">#FFAAAAAA</color>
+
+    <color name="postBackground">#F6F6F6</color>
+    <color name="postSubTitle">#FFAAAAAA</color>
+
+    <color name="textInputDialogTitle">#FF1E1E1E</color>
+    <color name="textInputDialogCancel">#FF999999</color>
+    <color name="textInputDialogConfirm">#FF666666</color>
+
+    <color name="radioSelectDialogTitle">#FF1E1E1E</color>
+    <color name="radioSelectDialogCancel">#FF999999</color>
+
+    <color name="radioSelectItemDescription">#FF333333</color>
 </resources>
