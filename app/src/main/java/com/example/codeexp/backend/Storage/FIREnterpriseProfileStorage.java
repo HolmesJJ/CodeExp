@@ -5,7 +5,7 @@ import com.example.codeexp.backend.Model.EnterpriseProfile;
 import com.example.codeexp.backend.Model.Entity;
 import com.example.codeexp.backend.Model.Profile;
 
-public class FIREnterpriseStorage implements StorageManager, StorageSync {
+public class FIREnterpriseProfileStorage implements ProfileStorage, ProfileStorageSync {
 
     @Override
     public void fetchUserProfile(String emailUid) {

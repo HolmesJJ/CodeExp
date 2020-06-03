@@ -17,7 +17,7 @@ public class FIRStorageManager {
     public static void fetchProfile(String emailUid, Entity entity) {
         String collection = getCollection(entity);
         //TODO: fetch then pass back
-
+        //h
     }
     public static void writeJobPresented(JobPresented job) {
         //TODO: write job

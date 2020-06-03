@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 public class FIRIndividualProfile extends Profile {
     String bankAccount;
-    String motherCompanyId; //TODO: prolly email as id in storage
+    String motherCompanyId; // email as id in storage
     String motherCompanyStaffId;
     JobAccepted jobAccepted;
     Boolean isCheckedIn;
