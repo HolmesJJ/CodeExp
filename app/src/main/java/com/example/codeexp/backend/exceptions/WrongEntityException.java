@@ -1,6 +1,6 @@
-package com.example.codeexp.backend.Exception;
+package com.example.codeexp.backend.exceptions;
 
-import com.example.codeexp.backend.Model.Entity;
+import com.example.codeexp.backend.model.Entity;
 
 public class WrongEntityException extends Exception {
     public WrongEntityException(Entity entity) {

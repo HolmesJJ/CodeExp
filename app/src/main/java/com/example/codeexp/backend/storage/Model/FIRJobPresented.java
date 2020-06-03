@@ -1,7 +1,7 @@
-package com.example.codeexp.backend.Storage.Model;
+package com.example.codeexp.backend.storage.Model;
 
-import com.example.codeexp.backend.Model.Entity;
-import com.example.codeexp.backend.Model.JobPresented;
+import com.example.codeexp.backend.model.Entity;
+import com.example.codeexp.backend.model.JobPresented;
 
 import java.time.LocalDateTime;
 

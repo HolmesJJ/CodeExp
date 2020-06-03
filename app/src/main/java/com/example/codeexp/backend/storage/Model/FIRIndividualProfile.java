@@ -1,11 +1,11 @@
-package com.example.codeexp.backend.Storage.Model;
+package com.example.codeexp.backend.storage.Model;
 
-import com.example.codeexp.backend.Model.Entity;
-import com.example.codeexp.backend.Model.IndividualProfile;
-import com.example.codeexp.backend.Model.JobAccepted;
-import com.example.codeexp.backend.Model.Name;
-import com.example.codeexp.backend.Model.Period;
-import com.example.codeexp.backend.Model.Profile;
+import com.example.codeexp.backend.model.Entity;
+import com.example.codeexp.backend.model.IndividualProfile;
+import com.example.codeexp.backend.model.JobAccepted;
+import com.example.codeexp.backend.model.Name;
+import com.example.codeexp.backend.model.Period;
+import com.example.codeexp.backend.model.Profile;
 
 public class FIRIndividualProfile extends Profile {
     String bankAccount;

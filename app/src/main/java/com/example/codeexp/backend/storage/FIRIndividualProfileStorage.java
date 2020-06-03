@@ -1,9 +1,9 @@
-package com.example.codeexp.backend.Storage;
+package com.example.codeexp.backend.storage;
 
-import com.example.codeexp.backend.Exception.WrongEntityException;
-import com.example.codeexp.backend.Model.IndividualProfile;
-import com.example.codeexp.backend.Model.Profile;
-import com.example.codeexp.backend.Storage.Model.FIRIndividualProfile;
+import com.example.codeexp.backend.exceptions.WrongEntityException;
+import com.example.codeexp.backend.model.IndividualProfile;
+import com.example.codeexp.backend.model.Profile;
+import com.example.codeexp.backend.storage.Model.FIRIndividualProfile;
 
 public class FIRIndividualProfileStorage implements ProfileStorage, ProfileStorageSync {
     @Override

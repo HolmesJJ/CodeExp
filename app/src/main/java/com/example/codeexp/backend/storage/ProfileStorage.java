@@ -1,7 +1,7 @@
-package com.example.codeexp.backend.Storage;
+package com.example.codeexp.backend.storage;
 
-import com.example.codeexp.backend.Exception.WrongEntityException;
-import com.example.codeexp.backend.Model.Profile;
+import com.example.codeexp.backend.exceptions.WrongEntityException;
+import com.example.codeexp.backend.model.Profile;
 
 public interface ProfileStorage {
 
