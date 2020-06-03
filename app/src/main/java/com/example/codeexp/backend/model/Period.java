@@ -1,7 +1,8 @@
-package com.example.codeexp.backend.Model;
+package com.example.codeexp.backend.model;
 
-import com.example.codeexp.backend.Exception.InvalidDateTimeException;
+import com.example.codeexp.backend.exceptions.InvalidDateTimeException;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Period {
@@ -39,5 +40,9 @@ public class Period {
 
     public LocalDateTime getEnd() {
         return end;
+    }
+
+    public Duration getDuration() {
+        return Duration.between(this.start, this.end);
     }
 }
