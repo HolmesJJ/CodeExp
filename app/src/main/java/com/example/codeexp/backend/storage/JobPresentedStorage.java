@@ -1,6 +1,6 @@
-package com.example.codeexp.backend.Storage;
+package com.example.codeexp.backend.storage;
 
-import com.example.codeexp.backend.Model.JobPresented;
+import com.example.codeexp.backend.model.JobPresented;
 
 import java.time.LocalDateTime;
 import java.util.List;

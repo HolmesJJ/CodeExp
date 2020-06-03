@@ -1,4 +1,4 @@
-package com.example.codeexp.backend.Storage;
+package com.example.codeexp.backend.storage;
 
 public enum FIRCollections {
     INDIVIDUAL_PROFILE("Individual"),

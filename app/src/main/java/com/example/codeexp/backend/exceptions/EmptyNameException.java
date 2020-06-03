@@ -1,4 +1,4 @@
-package com.example.codeexp.backend.Exception;
+package com.example.codeexp.backend.exceptions;
 
 public class EmptyNameException extends Exception {
     private int val;

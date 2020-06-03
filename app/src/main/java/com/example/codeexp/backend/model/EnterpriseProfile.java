@@ -1,11 +1,13 @@
-package com.example.codeexp.backend.Model;
+package com.example.codeexp.backend.model;
 
-import com.example.codeexp.backend.Storage.Model.FIREnterpriseProfile;
+import com.example.codeexp.backend.storage.Model.FIREnterpriseProfile;
 
 import java.time.LocalDateTime;
 
 public class EnterpriseProfile extends Profile {
     String jobNature;
+    List<IndividualProfile> employees;
+    List<IndividualProfile> offered;
     int numEmployees; // to look for jobs for
     // INSERT EMPLOYEE GROUPS/OTHER INFORMATION
 
@@ -26,5 +28,14 @@ public class EnterpriseProfile extends Profile {
 
     public int getNumEmployees() {
         return numEmployees;
+    }
+
+    public void addNewEmployee(IndividualProfile newEmployee) {
+        employees.add(newEmployee);
+        offered.remove(profile);
+    }
+
+    public void addNewOffer(IndividualProfile profile) {
+        offered.add(profile);
     }
 }

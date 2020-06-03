@@ -1,6 +1,6 @@
-package com.example.codeexp.backend.Model;
+package com.example.codeexp.backend.model;
 
-import com.example.codeexp.backend.Storage.Model.FIRIndividualProfile;
+import com.example.codeexp.backend.storage.Model.FIRIndividualProfile;
 
 import java.time.LocalDateTime;
 
@@ -44,5 +44,9 @@ public class IndividualProfile extends Profile {
 
     public Boolean getCheckedIn() {
         return isCheckedIn;
+    }
+
+    protected void setJobAccepted(JobAccepted jobAccepted) {
+        this.jobAccepted = jobAccepted;
     }
 }

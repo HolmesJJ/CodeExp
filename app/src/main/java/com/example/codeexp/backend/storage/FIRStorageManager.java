@@ -1,8 +1,8 @@
-package com.example.codeexp.backend.Storage;
+package com.example.codeexp.backend.storage;
 
-import com.example.codeexp.backend.Model.Entity;
-import com.example.codeexp.backend.Model.JobPresented;
-import com.example.codeexp.backend.Model.Profile;
+import com.example.codeexp.backend.model.Entity;
+import com.example.codeexp.backend.model.JobPresented;
+import com.example.codeexp.backend.model.Profile;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 

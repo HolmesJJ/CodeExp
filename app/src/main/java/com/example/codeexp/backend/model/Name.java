@@ -1,6 +1,6 @@
-package com.example.codeexp.backend.Model;
+package com.example.codeexp.backend.model;
 
-import com.example.codeexp.backend.Exception.EmptyNameException;
+import com.example.codeexp.backend.exceptions.EmptyNameException;
 
 public class Name {
     String firstName;
