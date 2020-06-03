@@ -4,13 +4,14 @@ import com.example.codeexp.backend.Messages;
 import com.example.codeexp.backend.model.EnterpriseProfile;
 import com.example.codeexp.backend.model.IndividualProfile;
 import com.example.codeexp.backend.model.Job;
+import com.example.codeexp.backend.model.JobAccepted;
 
 public class AcceptJobCommand {
     private EnterpriseProfile enterprise;
-    private Job job;
+    private JobAccepted job;
     private IndividualProfile profile;
 
-    public AcceptJobCommand(EnterpriseProfile enterprise, Job job, IndividualProfile profile) {
+    public AcceptJobCommand(EnterpriseProfile enterprise, JobAccepted job, IndividualProfile profile) {
         assert job != null : "null job passed";
 
         this.enterprise = enterprise;
