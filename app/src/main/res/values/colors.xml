@@ -22,4 +22,11 @@
     <color name="radioSelectDialogCancel">#FF999999</color>
 
     <color name="radioSelectItemDescription">#FF333333</color>
+
+    <color name="inputDialogTitle">#FF1E1E1E</color>
+    <color name="inputDialogRemark">#FFAAAAAA</color>
+    <color name="inputDialogScore">#333333</color>
+    <color name="inputDialogUnit">#FFAAAAAA</color>
+    <color name="inputDialogCancel">#FF999999</color>
+    <color name="inputDialogConfirm">#FF666666</color>
 </resources>

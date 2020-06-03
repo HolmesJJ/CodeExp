@@ -11,6 +11,9 @@ import com.example.codeexp.config.Config;
 import com.example.codeexp.constants.SpUtilValueConstants;
 import com.example.codeexp.databinding.ActivityLoginBinding;
 import com.example.codeexp.listener.OnMultiClickListener;
+import com.example.codeexp.ui.activity.enterprise.register.EnterpriseRegisterActivity;
+import com.example.codeexp.ui.activity.individual.register.IndividualRegisterActivity;
+import com.example.codeexp.util.ContextUtils;
 import com.example.codeexp.util.ListenerUtils;
 import com.example.codeexp.util.PermissionsUtils;
 
@@ -54,6 +57,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
         super.initData();
 
+        mBinding.toolbar.setTitle(ContextUtils.getContext().getString(R.string.login));
+
         PermissionsUtils.doSomeThingWithPermission(this, () -> {
             if (mViewModel != null) {
                 mViewModel.initData();
@@ -78,6 +83,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     }
 
     private void setListener() {
+
         mBinding.rgType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -93,10 +99,25 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
                 }
             }
         });
+
         ListenerUtils.setOnClickListener(mBinding.btnLogin, new OnMultiClickListener() {
             @Override
             public void onMultiClick(View v) {
                 startMainActivity();
+            }
+        });
+
+        ListenerUtils.setOnClickListener(mBinding.btnEnterpriseRegister, new OnMultiClickListener() {
+            @Override
+            public void onMultiClick(View v) {
+                startEnterpriseRegisterActivity();
+            }
+        });
+
+        ListenerUtils.setOnClickListener(mBinding.btnIndividualRegister, new OnMultiClickListener() {
+            @Override
+            public void onMultiClick(View v) {
+                startIndividualRegisterActivity();
             }
         });
     }
@@ -104,6 +125,16 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     private void startMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    private void startEnterpriseRegisterActivity() {
+        Intent intent = new Intent(LoginActivity.this, EnterpriseRegisterActivity.class);
+        startActivity(intent);
+    }
+
+    private void startIndividualRegisterActivity() {
+        Intent intent = new Intent(LoginActivity.this, IndividualRegisterActivity.class);
         startActivity(intent);
     }
 }

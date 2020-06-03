@@ -35,6 +35,14 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".ui.activity.individual.register.IndividualRegisterActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ui.activity.enterprise.register.EnterpriseRegisterActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait">
+        </activity>
         <provider
             android:name=".fileprovider.GenericFileProvider"
             android:authorities="${applicationId}.provider"

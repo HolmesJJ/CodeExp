@@ -87,11 +87,33 @@
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_round"
                 android:layout_marginTop="16dp"
                 android:text="@string/login"
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_enterprise_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/enterprise_register"/>
+
+        <Button
+            android:id="@+id/btn_individual_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/individual_register"/>
 
     </RelativeLayout>
 

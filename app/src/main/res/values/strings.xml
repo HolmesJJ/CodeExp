@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CodeExp</string>
+    <string name="app_name">WorkerPlus</string>
 
     <string name="exit_app_str">Press Again to Exit</string>
 
@@ -14,6 +14,14 @@
     <string name="check_out">Check Out</string>
     <string name="mine">Mine</string>
     <string name="detail">Detail</string>
+
+    <string name="enterprise_register">Enterprise Register</string>
+    <string name="individual_register">Individual Register</string>
+
+    <string name="retail">Retail</string>
+    <string name="catering">Catering</string>
+    <string name="manufacturing">Manufacturing</string>
+    <string name="service">Service</string>
 
     <string name="login">Login</string>
     <string name="enterprise">Enterprise</string>
@@ -37,7 +45,13 @@
     <string name="prepaid_salary">Prepaid Salary</string>
     <string name="total_amount">Total Amount</string>
 
+    <string name="range_1_1000">The range is 1 - 1000</string>
+    <string name="range_1_10000">The range is 1 - 10000</string>
+
     <string name="name">Name</string>
+
+    <string name="part_time">Part Time</string>
+    <string name="full_time">Full Time</string>
 
     <string name="upload_employees_information">Upload Employees Information</string>
     <string name="upload">Upload</string>
