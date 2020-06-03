@@ -120,7 +120,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         ListenerUtils.setOnClickListener(mBinding.btnLogin, new OnMultiClickListener() {
             @Override
             public void onMultiClick(View v) {
-                //TODO: retrieve username and password, then send to Auth.login
                 String username = mBinding.etUsername.getText().toString();
                 String password = mBinding.etPassword.getText().toString();
                 auth.login(username, password);

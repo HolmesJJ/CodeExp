@@ -68,9 +68,9 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@.1234567890"
                 android:minEms="10"
-                android:maxLength="10"/>
+                android:maxLength="30"/>
 
             <EditText
                 android:id="@+id/et_password"

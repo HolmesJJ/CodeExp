@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface JobPresentedStorage {
     public void writeJob(JobPresented job);
-    public void fetchJobs(LocalDateTime fromNow);
+    public void fetchJobs();
 }
 
 interface JobPresentedStorageSync {

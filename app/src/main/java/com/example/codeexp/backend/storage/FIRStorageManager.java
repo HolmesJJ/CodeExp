@@ -31,6 +31,13 @@ import static android.content.ContentValues.TAG;
 public class FIRStorageManager implements JobPresentedStorage, JobPresentedStorageSync {
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private static FIRStorageManager singleton = new FIRStorageManager();
+    private FIRStorageManager() {}
+
+    public static FIRStorageManager getSingleton() {
+        return singleton;
+    }
+
     public StorageUpdateDelegate del = ProgramState.getSingleton();
 
     @Override
@@ -46,7 +53,7 @@ public class FIRStorageManager implements JobPresentedStorage, JobPresentedStora
     }
 
     @Override
-    public void fetchJobs(LocalDateTime fromNow) {
+    public void fetchJobs() {
         db.collection(FIRCollections.JOB_PRESENTED.toString())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -66,18 +73,18 @@ public class FIRStorageManager implements JobPresentedStorage, JobPresentedStora
                 });
     }
 
-    public static void writeProfile(Profile profile) {
+    protected static void writeProfile(Profile profile) {
         db.collection(getCollection(profile.getEntity())).document(profile.getEmailUid()).set(profile, SetOptions.merge());
     }
 
-    public static void fetchProfile(String emailUid, Entity entity, OnSuccessListener<DocumentSnapshot> onSuccess) {
+    protected static void fetchProfile(String emailUid, Entity entity, OnSuccessListener<DocumentSnapshot> onSuccess) {
         //TODO: fetch then pass back
         DocumentReference docRef = db.collection(getCollection(entity)).document(emailUid);
         docRef.get().addOnSuccessListener(onSuccess);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public static void fetchProfiles(List<String> emailUids, Entity entity, OnCompleteListener<QuerySnapshot> onCompletion) {
+    protected static void fetchProfiles(List<String> emailUids, Entity entity, OnCompleteListener<QuerySnapshot> onCompletion) {
         db.collection((getCollection(entity)))
                 .whereIn("emailUid",  emailUids)
                 .get()

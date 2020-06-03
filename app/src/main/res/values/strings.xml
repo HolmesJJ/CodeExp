@@ -26,7 +26,7 @@
     <string name="login">Login</string>
     <string name="enterprise">Enterprise</string>
     <string name="individual">Individual</string>
-    <string name="prompt_username">Username</string>
+    <string name="prompt_username">Email</string>
     <string name="prompt_password">Password</string>
 
     <string name="basic_information">Basic Information</string>

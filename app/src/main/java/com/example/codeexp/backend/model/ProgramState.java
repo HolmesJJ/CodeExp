@@ -3,6 +3,7 @@ package com.example.codeexp.backend.model;
 import com.example.codeexp.backend.authentication.AuthNotifierDelegate;
 import com.example.codeexp.backend.storage.FIREnterpriseProfileStorage;
 import com.example.codeexp.backend.storage.FIRIndividualProfileStorage;
+import com.example.codeexp.backend.storage.FIRStorageManager;
 import com.example.codeexp.backend.storage.StorageUpdateDelegate;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class ProgramState implements StorageUpdateDelegate {
         // load user profile; the correct one will be saved to ProgramState
         FIRIndividualProfileStorage.getSingleton().fetchUserProfile(emailUid);
         FIREnterpriseProfileStorage.getSingleton().fetchUserProfile(emailUid);
+        FIRStorageManager.getSingleton().fetchJobs();
     }
 
     @Override
