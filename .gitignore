@@ -1,5 +1,7 @@
 *.DS_Store
 
+# Sensitive info
+*/google-services.json
 
 # Gradle files
 build/

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -11,7 +12,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
-            abiFilters "arm64-v8a","armeabi-v7a"
+            abiFilters "arm64-v8a", "armeabi-v7a"
         }
     }
     buildTypes {
@@ -55,6 +56,10 @@ dependencies {
     // cameraview
     implementation 'com.otaliastudios:cameraview:2.6.2'
     implementation 'com.snatik:storage:2.1.0'
+    // firebase
+    implementation 'com.google.firebase:firebase-firestore:17.1.2'
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.google.firebase:firebase-core:16.0.4'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
