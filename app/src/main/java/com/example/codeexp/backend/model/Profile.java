@@ -1,5 +1,8 @@
 package com.example.codeexp.backend.model;
 
+import com.example.codeexp.backend.model.Name;
+import com.example.codeexp.backend.model.Period;
+
 import java.time.LocalDateTime;
 
 public abstract class Profile {

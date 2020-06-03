@@ -12,8 +12,8 @@ import java.util.List;
 
 public class EnterpriseProfile extends Profile {
     String jobNature;
-    List<IndividualProfile> employees;
-    List<IndividualProfile> offered;
+    List<Profile> employees;
+    List<Profile> offered;
     int numEmployees; // to look for jobs for
     // INSERT EMPLOYEE GROUPS/OTHER INFORMATION
 

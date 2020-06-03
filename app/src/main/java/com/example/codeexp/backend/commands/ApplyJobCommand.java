@@ -8,6 +8,7 @@ import com.example.codeexp.backend.Messages;
 import com.example.codeexp.backend.model.Job;
 import com.example.codeexp.backend.model.Period;
 import com.example.codeexp.backend.model.Profile;
+import com.example.codeexp.backend.model.ProgramState;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +20,7 @@ public class ApplyJobCommand {
         assert job != null : "null job passed";
 
         this.job = job;
-        this.profile = profile;
+        this.profile = ProgramState.currentProfile();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
