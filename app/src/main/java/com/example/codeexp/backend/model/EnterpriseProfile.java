@@ -3,6 +3,7 @@ package com.example.codeexp.backend.model;
 import com.example.codeexp.backend.storage.Model.FIREnterpriseProfile;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EnterpriseProfile extends Profile {
@@ -16,6 +17,8 @@ public class EnterpriseProfile extends Profile {
         super(Entity.ENTERPRISE, emailUid, firstName, lastName, displayName, description, start, end);
         this.jobNature = jobNature;
         this.numEmployees = numEmployees;
+        this.employees = new ArrayList<>();
+        this.offerd = new ArrayList<>();
     }
 
     @Override
