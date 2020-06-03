@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi;
 import com.example.codeexp.backend.storage.model.FIREnterpriseProfile;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EnterpriseProfile extends Profile {
@@ -20,6 +21,8 @@ public class EnterpriseProfile extends Profile {
         super(Entity.ENTERPRISE, emailUid, firstName, lastName, displayName, description, start, end);
         this.jobNature = jobNature;
         this.numEmployees = numEmployees;
+        this.employees = new ArrayList<>();
+        this.offerd = new ArrayList<>();
     }
 
     public EnterpriseProfile(FIREnterpriseProfile profile) {
