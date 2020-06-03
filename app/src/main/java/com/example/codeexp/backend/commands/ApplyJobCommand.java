@@ -1,6 +1,13 @@
 package com.example.codeexp.backend.commands;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.example.codeexp.backend.Messages;
+import com.example.codeexp.backend.model.Job;
+import com.example.codeexp.backend.model.Period;
+import com.example.codeexp.backend.model.Profile;
 
 import java.time.LocalDateTime;
 
@@ -15,13 +22,14 @@ public class ApplyJobCommand {
         this.profile = profile;
     }
 
-    public bool hasMatchingPeriod() {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public Boolean hasMatchingPeriod() {
         Period jobPeriod = job.getPeriod();
         Period availability = profile.getPeriod();
         LocalDateTime availStart = availability.getStart();
         LocalDateTime jobEnd = jobPeriod.getStart();
 
-        if (availStart.compareT(jobEnd) < 0) {
+        if (availStart.compareTo(jobEnd) < 0) {
             return true;
         } else {
             return false;

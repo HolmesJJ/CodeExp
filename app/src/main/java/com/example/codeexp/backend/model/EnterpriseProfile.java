@@ -4,6 +4,7 @@ import com.example.codeexp.backend.storage.Model.FIREnterpriseProfile;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class EnterpriseProfile extends Profile {
     String jobNature;
@@ -33,9 +34,17 @@ public class EnterpriseProfile extends Profile {
         return numEmployees;
     }
 
+    public List<IndividualProfile> getEmployees() {
+        return employees;
+    }
+
+    public List<IndividualProfile> getOffered() {
+        return offered;
+    }
+
     public void addNewEmployee(IndividualProfile newEmployee) {
         employees.add(newEmployee);
-        offered.remove(profile);
+        offered.remove(newEmployee);
     }
 
     public void addNewOffer(IndividualProfile profile) {

@@ -15,3 +15,4 @@ public class OfferJobCommand {
         this.offeredTo = offeredTo;
         enterprise.addNewOffer(offeredTo);
     }
+}

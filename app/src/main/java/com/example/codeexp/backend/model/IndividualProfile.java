@@ -46,7 +46,7 @@ public class IndividualProfile extends Profile {
         return isCheckedIn;
     }
 
-    protected void setJobAccepted(JobAccepted jobAccepted) {
+    public void setJobAccepted(JobAccepted jobAccepted) {
         this.jobAccepted = jobAccepted;
     }
 }

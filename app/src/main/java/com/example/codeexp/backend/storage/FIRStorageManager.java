@@ -6,8 +6,26 @@ import com.example.codeexp.backend.model.Profile;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
-public class FIRStorageManager {
+import java.time.LocalDateTime;
+import java.util.List;
+
+public class FIRStorageManager implements JobPresentedStorage, JobPresentedStorageSync {
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    @Override
+    public void writeJob(JobPresented job) {
+        //TODO
+    }
+
+    @Override
+    public void fetchJobs(LocalDateTime fromNow) {
+
+    }
+
+    @Override
+    public void hasLoadedJobs(List<JobPresented> jobs) {
+
+    }
 
     public static void writeProfile(Profile profile) {
         String collection = getCollection(profile.getEntity());
@@ -18,13 +36,6 @@ public class FIRStorageManager {
         String collection = getCollection(entity);
         //TODO: fetch then pass back
         //h
-    }
-    public static void writeJobPresented(JobPresented job) {
-        //TODO: write job
-    }
-
-    public static void fetchJobs() {
-        //TODO:
     }
 
     private static String getCollection(Entity entity) {
@@ -37,4 +48,5 @@ public class FIRStorageManager {
                 return ""; //TODO: can throw error
         }
     }
+
 }
