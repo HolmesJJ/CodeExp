@@ -7,8 +7,6 @@ import com.example.codeexp.backend.Model.Name;
 import com.example.codeexp.backend.Model.Period;
 import com.example.codeexp.backend.Model.Profile;
 
-import java.time.LocalDateTime;
-
 public class FIRIndividualProfile extends Profile {
     String bankAccount;
     String motherCompanyId; // email as id in storage
