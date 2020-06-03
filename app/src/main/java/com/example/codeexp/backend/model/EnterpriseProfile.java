@@ -22,7 +22,7 @@ public class EnterpriseProfile extends Profile {
         this.jobNature = jobNature;
         this.numEmployees = numEmployees;
         this.employees = new ArrayList<>();
-        this.offerd = new ArrayList<>();
+        this.offered = new ArrayList<>();
     }
 
     public EnterpriseProfile(FIREnterpriseProfile profile) {
