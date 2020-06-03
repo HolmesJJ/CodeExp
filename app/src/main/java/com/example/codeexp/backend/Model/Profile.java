@@ -7,7 +7,7 @@ public abstract class Profile {
     private Name name;
     private String displayName;
     private String description;
-    private Period period;
+    private Period period; //looking for jobs
 
     private Entity entity;
 
