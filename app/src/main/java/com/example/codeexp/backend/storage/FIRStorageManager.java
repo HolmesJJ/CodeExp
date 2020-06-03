@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi;
 import com.example.codeexp.backend.model.Entity;
 import com.example.codeexp.backend.model.JobPresented;
 import com.example.codeexp.backend.model.Profile;
+import com.example.codeexp.backend.model.ProgramState;
 import com.example.codeexp.backend.storage.model.FIRJobPresented;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,7 +33,8 @@ public class FIRStorageManager implements JobPresentedStorage, JobPresentedStora
 
     @Override
     public void hasLoadedJobs(List<JobPresented> jobs) {
-        //TODO: pass jobs to logic
+        ProgramState.getSingleton().jobsListed = jobs;
+        //TODO: tell ui to refresh the jobs listing page
     }
 
     @Override

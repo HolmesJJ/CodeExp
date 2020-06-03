@@ -11,6 +11,7 @@ import com.example.codeexp.backend.model.EnterpriseProfile;
 import com.example.codeexp.backend.model.Entity;
 import com.example.codeexp.backend.model.IndividualProfile;
 import com.example.codeexp.backend.model.Profile;
+import com.example.codeexp.backend.model.ProgramState;
 import com.example.codeexp.backend.storage.model.FIREnterpriseProfile;
 import com.example.codeexp.backend.storage.model.FIRIndividualProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,7 +37,9 @@ public class FIREnterpriseProfileStorage implements ProfileStorage, ProfileStora
 
     @Override
     public void hasLoadedUserProfile(Profile user) {
-        //TODO: call logic/app state function to pass info over
+        // call logic/app state function to pass info over
+        ProgramState.getSingleton().currentProfile = user;
+        //TODO: refresh ui if needed
     }
 
     @Override
