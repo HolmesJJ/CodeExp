@@ -77,10 +77,12 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
         checkType();
 
-        if (auth.isAlreadyLoggedIn()) {
-            ProgramState.getSingleton().init(auth.getCurrentUserEmail());
-            return; //don't set listener; just wait
-        }
+        // ALWAYS LOG OUT. TO AVOID DEBUGGING
+        auth.logout();
+//        if (auth.isAlreadyLoggedIn()) {
+//            ProgramState.getSingleton().init(auth.getCurrentUserEmail());
+//            return; //don't set listener; just wait
+//        }
         auth.setLoginAuthDelegate(this);
 
         setListener();

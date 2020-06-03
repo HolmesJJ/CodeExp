@@ -1,20 +1,40 @@
 package com.example.codeexp.ui.activity.individual.register;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 
 import com.example.codeexp.BR;
+import com.example.codeexp.MainActivity;
 import com.example.codeexp.R;
+import com.example.codeexp.backend.authentication.Authenticator;
+import com.example.codeexp.backend.authentication.FIRAuthenticator;
+import com.example.codeexp.backend.authentication.SignUpAuthDelegate;
+import com.example.codeexp.backend.model.EnterpriseProfile;
+import com.example.codeexp.backend.model.IndividualProfile;
+import com.example.codeexp.backend.model.ProgramState;
 import com.example.codeexp.base.BaseActivity;
 import com.example.codeexp.databinding.ActivityIndividualRegisterBinding;
+import com.example.codeexp.listener.OnMultiClickListener;
+import com.example.codeexp.ui.activity.enterprise.register.EnterpriseRegisterActivity;
 import com.example.codeexp.ui.viewmodel.individual.register.IndividualRegisterViewModel;
 import com.example.codeexp.ui.widget.dialog.RadioSelectDialog;
 import com.example.codeexp.ui.widget.dialog.TextInputDialog;
 import com.example.codeexp.util.ContextUtils;
+import com.example.codeexp.util.ListenerUtils;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IndividualRegisterActivity extends BaseActivity<ActivityIndividualRegisterBinding, IndividualRegisterViewModel> {
+public class IndividualRegisterActivity extends BaseActivity<ActivityIndividualRegisterBinding, IndividualRegisterViewModel> implements SignUpAuthDelegate {
+    Authenticator auth = FIRAuthenticator.getSingleton();
+
+    String name, contact, email, bankAccount, enterprise, staffNumber;
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
@@ -66,6 +86,22 @@ public class IndividualRegisterActivity extends BaseActivity<ActivityIndividualR
                 .setItemClickListener(
                         this::showUpdateStaffNumberDialog
                 );
+
+        auth.setSignUpAuthDelegate(this);
+        ListenerUtils.setOnClickListener(mBinding.tvLogout, new OnMultiClickListener() {
+            @Override
+            public void onMultiClick(View v) {
+                //TODO: any additional data checks before submitting?
+                name = mBinding.name.getRightText();
+                contact = mBinding.contact.getRightText();
+                bankAccount = mBinding.bankAccount.getRightText();
+                enterprise = mBinding.enterprise.getRightText();
+                staffNumber = mBinding.staffNumber.getRightText();
+                email = "test@example.com"; //TODO: add email
+                String password = "123456"; //TODO: add password
+                auth.signUp(email, password);
+            }
+        });
     }
 
     private void showUpdateNameDialog() {
@@ -188,5 +224,26 @@ public class IndividualRegisterActivity extends BaseActivity<ActivityIndividualR
                         mBinding.staffNumber.setRightText(text);
                     }
                 });
+    }
+
+    private void startMainActivity() {
+        Intent intent = new Intent(IndividualRegisterActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void signUpDidSucceed() {
+        Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show();
+        ProgramState.getSingleton().currentProfile = new IndividualProfile(
+                email, name, "", name, "Description", LocalDateTime.now(), LocalDateTime.now(), bankAccount, new EnterpriseProfile(null, enterprise, null, null, null, null, null, null, 0), staffNumber, null, false
+        );
+        startMainActivity();
+    }
+
+    @Override
+    public void signUpDidFail() {
+        Toast.makeText(this, "Signup Failed, Please try again", Toast.LENGTH_LONG).show();
     }
 }
