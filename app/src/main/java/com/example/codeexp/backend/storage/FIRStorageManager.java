@@ -50,9 +50,9 @@ public class FIRStorageManager implements JobPresentedStorage, JobPresentedStora
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static void fetchProfiles(List<String> emailUids, Entity entity, OnCompleteListener<QuerySnapshot> onCompletion) {
         db.collection((getCollection(entity)))
-                .where("emailUid", "in", emailUids.stream().toArray(String[]::new))
+                .whereIn("emailUid",  emailUids)
                 .get()
-                .addOnCompleteListener(onCompletion);;
+                .addOnCompleteListener(onCompletion);
     }
 
     private static String getCollection(Entity entity) {
