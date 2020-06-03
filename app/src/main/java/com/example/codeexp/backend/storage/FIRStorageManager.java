@@ -1,13 +1,23 @@
 package com.example.codeexp.backend.storage;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.example.codeexp.backend.model.Entity;
 import com.example.codeexp.backend.model.JobPresented;
 import com.example.codeexp.backend.model.Profile;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.function.Function;
 
 public class FIRStorageManager implements JobPresentedStorage, JobPresentedStorageSync {
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -28,14 +38,21 @@ public class FIRStorageManager implements JobPresentedStorage, JobPresentedStora
     }
 
     public static void writeProfile(Profile profile) {
-        String collection = getCollection(profile.getEntity());
-        db.collection(collection).document(profile.getEmailUid()).set(profile, SetOptions.merge());
+        db.collection(getCollection(profile.getEntity())).document(profile.getEmailUid()).set(profile, SetOptions.merge());
     }
 
-    public static void fetchProfile(String emailUid, Entity entity) {
-        String collection = getCollection(entity);
+    public static void fetchProfile(String emailUid, Entity entity, OnSuccessListener<DocumentSnapshot> onSuccess) {
         //TODO: fetch then pass back
-        //h
+        DocumentReference docRef = db.collection(getCollection(entity)).document(emailUid);
+        docRef.get().addOnSuccessListener(onSuccess);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public static void fetchProfiles(List<String> emailUids, Entity entity, OnCompleteListener<QuerySnapshot> onCompletion) {
+        db.collection((getCollection(entity)))
+                .where("emailUid", "in", emailUids.stream().toArray(String[]::new))
+                .get()
+                .addOnCompleteListener(onCompletion);;
     }
 
     private static String getCollection(Entity entity) {

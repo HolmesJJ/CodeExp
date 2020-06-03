@@ -1,4 +1,4 @@
-package com.example.codeexp.backend.Authentication;
+package com.example.codeexp.backend.authentication;
 
 /**
  * Presenter views and logic managers post-authentication should implement this interface.

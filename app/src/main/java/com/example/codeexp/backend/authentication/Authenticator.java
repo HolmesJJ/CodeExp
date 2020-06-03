@@ -1,4 +1,4 @@
-package com.example.codeexp.backend.Authentication;
+package com.example.codeexp.backend.authentication;
 
 public interface Authenticator {
     public void login(String email, String password);

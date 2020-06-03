@@ -20,19 +20,15 @@ public abstract class Job {
     public String getPosition() {
         return position;
     }
-
     public Period getPeriod() {
         return period;
     }
-
     public String getCompanyId() {
         return companyId;
     }
-
     public String getCompanyName() {
         return companyName;
     }
-
     public String getJobNature() {
         return jobNature;
     }

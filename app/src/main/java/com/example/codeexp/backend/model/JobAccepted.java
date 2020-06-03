@@ -15,7 +15,6 @@ public class JobAccepted extends Job {
     public String getTempStaffId() {
         return tempStaffId;
     }
-
     public double getSalary() {
         return salary;
     }

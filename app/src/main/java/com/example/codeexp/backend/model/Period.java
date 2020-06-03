@@ -1,5 +1,9 @@
 package com.example.codeexp.backend.model;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.example.codeexp.backend.exceptions.InvalidDateTimeException;
 
 import java.time.Duration;
@@ -14,6 +18,7 @@ public class Period {
         this.end = end;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void editStartDate(LocalDateTime start) throws InvalidDateTimeException {
         if (isValidPeriod(start, this.end)) {
             this.start = start;
@@ -22,6 +27,7 @@ public class Period {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void editEndDate(LocalDateTime end) throws InvalidDateTimeException {
         if (isValidPeriod(this.start, end)) {
             this.end = end;
@@ -30,6 +36,7 @@ public class Period {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean isValidPeriod(LocalDateTime start, LocalDateTime end) {
         return end.isAfter(start);
     }
@@ -37,11 +44,11 @@ public class Period {
     public LocalDateTime getStart() {
         return start;
     }
-
     public LocalDateTime getEnd() {
         return end;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Duration getDuration() {
         return Duration.between(this.start, this.end);
     }

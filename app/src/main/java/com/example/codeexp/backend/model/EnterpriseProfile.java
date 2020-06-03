@@ -1,6 +1,10 @@
 package com.example.codeexp.backend.model;
 
-import com.example.codeexp.backend.storage.Model.FIREnterpriseProfile;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import com.example.codeexp.backend.storage.model.FIREnterpriseProfile;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,6 +22,18 @@ public class EnterpriseProfile extends Profile {
         this.numEmployees = numEmployees;
     }
 
+    public EnterpriseProfile(FIREnterpriseProfile profile) {
+        this(profile.getEmailUid(), profile.getName().getFirstName(), profile.getName().getLastName(), profile.getDisplayName(), profile.getDescription(), profile.getPeriod().getStart(), profile.getPeriod().getEnd(),
+                profile.getJobNature(), profile.getNumEmployees());
+    }
+
+    public EnterpriseProfile(FIREnterpriseProfile profile, List<IndividualProfile> employees, List<IndividualProfile> offered) {
+        this(profile);
+        this.employees = employees;
+        this.offered = offered;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public FIREnterpriseProfile toFIR() {
         return new FIREnterpriseProfile(this);

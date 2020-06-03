@@ -1,4 +1,4 @@
-package com.example.codeexp.backend.storage.Model;
+package com.example.codeexp.backend.storage.model;
 
 import com.example.codeexp.backend.model.Entity;
 import com.example.codeexp.backend.model.JobPresented;

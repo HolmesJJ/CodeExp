@@ -1,4 +1,4 @@
-package com.example.codeexp.backend.Authentication;
+package com.example.codeexp.backend.authentication;
 
 import androidx.annotation.NonNull;
 
@@ -13,7 +13,7 @@ import java.util.concurrent.Executor;
 public class FIRAuthenticator implements Authenticator {
     private static FirebaseAuth auth = FirebaseAuth.getInstance();
     private static String currentUserEmail = null;
-    
+
     //TODO: remember to set delegate appropriately; eg. when at login activity, set delegate = login activity.
     public AuthDelegate authDelegate = null;
 

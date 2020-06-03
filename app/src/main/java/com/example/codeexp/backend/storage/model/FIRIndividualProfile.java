@@ -1,4 +1,4 @@
-package com.example.codeexp.backend.storage.Model;
+package com.example.codeexp.backend.storage.model;
 
 import com.example.codeexp.backend.model.Entity;
 import com.example.codeexp.backend.model.IndividualProfile;
@@ -31,5 +31,21 @@ public class FIRIndividualProfile extends Profile {
     @Override
     public Profile toFIR() {
         return this;
+    }
+
+    public String getBankAccount() {
+        return bankAccount;
+    }
+    public Boolean getCheckedIn() {
+        return isCheckedIn;
+    }
+    public String getMotherCompanyStaffId() {
+        return motherCompanyStaffId;
+    }
+    public String getMotherCompanyId() {
+        return motherCompanyId;
+    }
+    public JobAccepted getJobAccepted() {
+        return jobAccepted;
     }
 }

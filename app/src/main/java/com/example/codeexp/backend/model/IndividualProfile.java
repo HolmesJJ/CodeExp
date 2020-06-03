@@ -1,6 +1,6 @@
 package com.example.codeexp.backend.model;
 
-import com.example.codeexp.backend.storage.Model.FIRIndividualProfile;
+import com.example.codeexp.backend.storage.model.FIRIndividualProfile;
 
 import java.time.LocalDateTime;
 
@@ -19,6 +19,11 @@ public class IndividualProfile extends Profile {
         this.motherCompanyStaffId = motherCompanyStaffId;
         this.jobAccepted = jobAccepted;
         this.isCheckedIn = isCheckedIn;
+    }
+
+    public IndividualProfile(FIRIndividualProfile storedProf, EnterpriseProfile parentCompany) {
+        this(storedProf.getEmailUid(), storedProf.getName().getFirstName(), storedProf.getName().getLastName(), storedProf.getDisplayName(), storedProf.getDescription(), storedProf.getPeriod().getStart(), storedProf.getPeriod().getEnd(),
+                storedProf.getBankAccount(), parentCompany, storedProf.getMotherCompanyStaffId(), storedProf.getJobAccepted(), storedProf.getCheckedIn());
     }
 
     @Override
