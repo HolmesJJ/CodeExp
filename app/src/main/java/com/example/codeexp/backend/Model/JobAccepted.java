@@ -11,4 +11,12 @@ public class JobAccepted extends Job {
         this.tempStaffId = tempStaffId;
         this.salary = salary;
     }
+
+    public String getTempStaffId() {
+        return tempStaffId;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
 }

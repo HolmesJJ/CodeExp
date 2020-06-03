@@ -1,10 +1,12 @@
 package com.example.codeexp.backend.Model;
 
+import com.example.codeexp.backend.Storage.Model.FIRIndividualProfile;
+
 import java.time.LocalDateTime;
 
 public class IndividualProfile extends Profile {
     String bankAccount;
-    EnterpriseProfile motherCompany; //TODO: can consider storing string id and retrieve company info separately if not enuf space
+    EnterpriseProfile motherCompany;
     String motherCompanyStaffId;
     JobAccepted jobAccepted;
     Boolean isCheckedIn;
@@ -17,5 +19,30 @@ public class IndividualProfile extends Profile {
         this.motherCompanyStaffId = motherCompanyStaffId;
         this.jobAccepted = jobAccepted;
         this.isCheckedIn = isCheckedIn;
+    }
+
+    @Override
+    public FIRIndividualProfile toFIR() {
+        return new FIRIndividualProfile(this);
+    }
+
+    public String getBankAccount() {
+        return bankAccount;
+    }
+
+    public EnterpriseProfile getMotherCompany() {
+        return motherCompany;
+    }
+
+    public String getMotherCompanyStaffId() {
+        return motherCompanyStaffId;
+    }
+
+    public JobAccepted getJobAccepted() {
+        return jobAccepted;
+    }
+
+    public Boolean getCheckedIn() {
+        return isCheckedIn;
     }
 }

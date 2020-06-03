@@ -20,6 +20,8 @@ public abstract class Profile {
         this.period = new Period(start, end);
     }
 
+    public abstract Profile toFIR();
+
     public Entity getEntity() {
         return entity;
     }

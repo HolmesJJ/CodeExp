@@ -32,4 +32,12 @@ public class Period {
     public boolean isValidPeriod(LocalDateTime start, LocalDateTime end) {
         return end.isAfter(start);
     }
+
+    public LocalDateTime getStart() {
+        return start;
+    }
+
+    public LocalDateTime getEnd() {
+        return end;
+    }
 }

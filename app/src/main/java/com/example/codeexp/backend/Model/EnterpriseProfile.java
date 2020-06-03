@@ -1,5 +1,7 @@
 package com.example.codeexp.backend.Model;
 
+import com.example.codeexp.backend.Storage.Model.FIREnterpriseProfile;
+
 import java.time.LocalDateTime;
 
 public class EnterpriseProfile extends Profile {
@@ -11,5 +13,18 @@ public class EnterpriseProfile extends Profile {
         super(Entity.ENTERPRISE, emailUid, firstName, lastName, displayName, description, start, end);
         this.jobNature = jobNature;
         this.numEmployees = numEmployees;
+    }
+
+    @Override
+    public FIREnterpriseProfile toFIR() {
+        return new FIREnterpriseProfile(this);
+    }
+
+    public String getJobNature() {
+        return jobNature;
+    }
+
+    public int getNumEmployees() {
+        return numEmployees;
     }
 }

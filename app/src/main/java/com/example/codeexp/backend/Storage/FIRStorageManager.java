@@ -1,6 +1,7 @@
 package com.example.codeexp.backend.Storage;
 
 import com.example.codeexp.backend.Model.Entity;
+import com.example.codeexp.backend.Model.JobPresented;
 import com.example.codeexp.backend.Model.Profile;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
@@ -17,6 +18,13 @@ public class FIRStorageManager {
         String collection = getCollection(entity);
         //TODO: fetch then pass back
 
+    }
+    public static void writeJobPresented(JobPresented job) {
+        //TODO: write job
+    }
+
+    public static void fetchJobs() {
+        //TODO:
     }
 
     private static String getCollection(Entity entity) {

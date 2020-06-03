@@ -1,5 +1,7 @@
 package com.example.codeexp.backend.Model;
 
+import com.example.codeexp.backend.Storage.Model.FIRJobPresented;
+
 import java.time.LocalDateTime;
 
 public class JobPresented extends Job {
@@ -16,5 +18,29 @@ public class JobPresented extends Job {
         this.salaryMax = salaryMax;
         this.numSlots = numSlots;
         this.expirationDate = expirationDate;
+    }
+
+    public FIRJobPresented toFIR() {
+        return new FIRJobPresented(this);
+    }
+
+    public Entity getTarget() {
+        return target;
+    }
+
+    public double getSalaryMax() {
+        return salaryMax;
+    }
+
+    public double getSalaryMin() {
+        return salaryMin;
+    }
+
+    public int getNumSlots() {
+        return numSlots;
+    }
+
+    public LocalDateTime getExpirationDate() {
+        return expirationDate;
     }
 }

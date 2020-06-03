@@ -19,7 +19,7 @@ public class FIREnterpriseStorage implements StorageManager, StorageSync {
             throw new WrongEntityException(user.getEntity());
         }
 
-        FIRStorageManager.writeProfile(user);
+        FIRStorageManager.writeProfile(user.toFIR());
     }
 
     @Override
