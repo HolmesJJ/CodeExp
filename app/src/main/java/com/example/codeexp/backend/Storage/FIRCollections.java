@@ -2,7 +2,8 @@ package com.example.codeexp.backend.Storage;
 
 public enum FIRCollections {
     INDIVIDUAL_PROFILE("Individual"),
-    ENTERPRISE_PROFILE("Enterprise");
+    ENTERPRISE_PROFILE("Enterprise"),
+    JOB_PRESENTED("GenericJobs");
 
     private final String path;
 
