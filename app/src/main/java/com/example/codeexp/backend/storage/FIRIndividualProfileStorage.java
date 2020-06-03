@@ -19,10 +19,16 @@ public class FIRIndividualProfileStorage implements ProfileStorage, ProfileStora
         return singleton;
     }
 
+    public StorageUpdateDelegate del = ProgramState.getSingleton();
+
     @Override
     public void hasLoadedUserProfile(Profile user) {
         // call logic component to update.
+        if (user == null) {
+            return;
+        }
         ProgramState.getSingleton().currentProfile = user;
+        del.profileDidUpdate();
         //TODO: refresh ui if applicable
     }
 

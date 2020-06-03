@@ -1,9 +1,17 @@
 package com.example.codeexp.ui.activity.enterprise.register;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.codeexp.BR;
+import com.example.codeexp.LoginActivity;
+import com.example.codeexp.MainActivity;
 import com.example.codeexp.R;
+import com.example.codeexp.backend.authentication.AuthNotifierDelegate;
+import com.example.codeexp.backend.authentication.Authenticator;
+import com.example.codeexp.backend.authentication.FIRAuthenticator;
+import com.example.codeexp.backend.authentication.SignUpAuthDelegate;
 import com.example.codeexp.base.BaseActivity;
 import com.example.codeexp.databinding.ActivityEnterpriseRegisterBinding;
 import com.example.codeexp.ui.viewmodel.enterprise.register.EnterpriseRegisterViewModel;
@@ -15,7 +23,8 @@ import com.example.codeexp.util.ContextUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnterpriseRegisterActivity extends BaseActivity<ActivityEnterpriseRegisterBinding, EnterpriseRegisterViewModel> {
+public class EnterpriseRegisterActivity extends BaseActivity<ActivityEnterpriseRegisterBinding, EnterpriseRegisterViewModel> implements SignUpAuthDelegate, AuthNotifierDelegate {
+    Authenticator auth = FIRAuthenticator.getSingleton();
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
@@ -121,5 +130,27 @@ public class EnterpriseRegisterActivity extends BaseActivity<ActivityEnterpriseR
                             }
                         });
         inputDialog.show();
+    }
+
+    private void startMainActivity() {
+        Intent intent = new Intent(EnterpriseRegisterActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    @Override
+    public void signUpDidSucceed() {
+        Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show();
+        startMainActivity();
+    }
+
+    @Override
+    public void signUpDidFail() {
+        Toast.makeText(this, "Signup Failed, Please try again", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void authDidSucceedAndLoadProfile() {
+        startMainActivity();
     }
 }

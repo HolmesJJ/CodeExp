@@ -5,7 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
+import com.example.codeexp.backend.authentication.AuthNotifierDelegate;
+import com.example.codeexp.backend.authentication.LoginAuthDelegate;
+import com.example.codeexp.backend.authentication.Authenticator;
+import com.example.codeexp.backend.authentication.FIRAuthenticator;
+import com.example.codeexp.backend.model.ProgramState;
+import com.example.codeexp.backend.storage.FIREnterpriseProfileStorage;
+import com.example.codeexp.backend.storage.FIRIndividualProfileStorage;
 import com.example.codeexp.base.BaseActivity;
 import com.example.codeexp.config.Config;
 import com.example.codeexp.constants.SpUtilValueConstants;
@@ -19,7 +27,9 @@ import com.example.codeexp.util.PermissionsUtils;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
 
-public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
+public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> implements LoginAuthDelegate, AuthNotifierDelegate {
+
+    Authenticator auth = FIRAuthenticator.getSingleton();
 
     private final static int REC_PERMISSION = 100;
     private String[] PERMISSIONS = {
@@ -66,6 +76,13 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         }, PERMISSIONS, REC_PERMISSION, R.string.rationale_init);
 
         checkType();
+
+        if (auth.isAlreadyLoggedIn()) {
+            ProgramState.getSingleton().init(auth.getCurrentUserEmail());
+            return; //don't set listener; just wait
+        }
+        auth.setLoginAuthDelegate(this);
+
         setListener();
     }
 
@@ -103,7 +120,11 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
         ListenerUtils.setOnClickListener(mBinding.btnLogin, new OnMultiClickListener() {
             @Override
             public void onMultiClick(View v) {
-                startMainActivity();
+                //TODO: retrieve username and password, then send to Auth.login
+                String username = mBinding.etUsername.getText().toString();
+                String password = mBinding.etPassword.getText().toString();
+                auth.login(username, password);
+                //startMainActivity();
             }
         });
 
@@ -136,5 +157,35 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     private void startIndividualRegisterActivity() {
         Intent intent = new Intent(LoginActivity.this, IndividualRegisterActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void loginDidSucceed() {
+        Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_LONG).show();
+        //startMainActivity();
+        ProgramState.getSingleton().init(auth.getCurrentUserEmail());
+    }
+
+    @Override
+    public void loginDidFail() {
+        Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void authDidSucceedAndLoadProfile() {
+        // Main use case: auto auth upon start up of app.
+        switch (ProgramState.getSingleton().currentProfile.getEntity()){
+            case ENTERPRISE:
+                Config.setLoginMode(SpUtilValueConstants.LOGIN_MODE_ENTERPRISE);
+                break;
+            case INDIVIDUAL:
+                Config.setLoginMode(SpUtilValueConstants.LOGIN_MODE_INDIVIDUAL);
+                break;
+            default:
+                // since failed for some reason; can debug if have time
+                setListener();
+                break;
+        }
+        startMainActivity();
     }
 }

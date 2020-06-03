@@ -1,47 +1,54 @@
 package com.example.codeexp.backend;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import com.example.codeexp.backend.model.Entity;
+import com.example.codeexp.backend.model.JobPresented;
 import com.example.codeexp.backend.model.Period;
 
 import java.time.LocalDateTime;
 
 public class SampleJobListings {
-    public static Job[] getSampleJobs() {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static JobPresented[] getSampleJobs() {
         LocalDateTime sampleStart = LocalDateTime.now();
         LocalDateTime sampleEnd = sampleStart.plusMonths(3).plusDays(20);
 
-        return new Job[]{
-                new Job("abc", "Cashier", "abccorp@gmail.com", "ABC CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+        return new JobPresented[]{
+                new JobPresented("abc", "Cashier", "abccorp@gmail.com", "ABC CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.ENTERPRISE, 2000, 1000, 50, sampleStart
                 ),
-                new Job("def", "Server", "defcorp@ymail.com", "DEF CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("def", "Server", "defcorp@ymail.com", "DEF CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.ENTERPRISE, 2000, 1000, 50, sampleStart
                 ),
-                new Job("ghi", "Storage manager", "ghicorp@hotmail.com", "GHI CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("ghi", "Storage manager", "ghicorp@hotmail.com", "GHI CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.ENTERPRISE, 2000, 1000, 50, sampleStart
                 ),
-                new Job("jkl", "Packer", "jklcorp@outlook.com", "JKL CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("jkl", "Packer", "jklcorp@outlook.com", "JKL CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.ENTERPRISE, 2000, 1000, 50, sampleStart
                 ),
-                new Job("mno", "General manager", "mnocorp@outlook.com", "MNO CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("mno", "General manager", "mnocorp@outlook.com", "MNO CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.ENTERPRISE, 2000, 1000, 50, sampleStart
                 ),
-                new Job("pqr", "Receptionist", "pqrcorp@email.com", "PQR CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("pqr", "Receptionist", "pqrcorp@email.com", "PQR CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.INDIVIDUAL, 2000, 1000, 1, sampleStart
                 ),
-                new Job("stu", "Data entry officer", "stucorp@outlook.com", "STU CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("stu", "Data entry officer", "stucorp@outlook.com", "STU CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.INDIVIDUAL, 2000, 1000, 1, sampleStart
                 ),
-                new Job("vwx", "Personal assistant", "vwxcorp@outlook.com", "VWX CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("vwx", "Personal assistant", "vwxcorp@outlook.com", "VWX CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.INDIVIDUAL, 2000, 1000, 1, sampleStart
                 ),
-                new Job("yza", "Head Chef", "yzacorp@outlook.com", "YZA CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("yza", "Head Chef", "yzacorp@outlook.com", "YZA CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.INDIVIDUAL, 2000, 1000, 1, sampleStart
                 ),
-                new Job("bcd", "Food handler", "bcdcorp@outlook.com", "BCD CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("bcd", "Food handler", "bcdcorp@outlook.com", "BCD CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.INDIVIDUAL, 2000, 1000, 1, sampleStart
                 ),
-                new Job("efg", "Waiter", "efgcorp@outlook.com", "EFG CORPORATION PTE LTD",
-                        "customer service", sampleStart, sampleEnd
+                new JobPresented("efg", "Waiter", "efgcorp@outlook.com", "EFG CORPORATION PTE LTD",
+                        "customer service", sampleStart, sampleEnd, Entity.INDIVIDUAL, 2000, 1000, 1, sampleStart
                 )
         };
     }

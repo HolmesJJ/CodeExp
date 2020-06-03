@@ -20,7 +20,7 @@ public class ApplyJobCommand {
         assert job != null : "null job passed";
 
         this.job = job;
-        this.profile = ProgramState.currentProfile();
+        this.profile = ProgramState.getSingleton().currentProfile;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

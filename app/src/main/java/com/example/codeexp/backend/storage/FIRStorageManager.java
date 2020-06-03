@@ -31,9 +31,12 @@ import static android.content.ContentValues.TAG;
 public class FIRStorageManager implements JobPresentedStorage, JobPresentedStorageSync {
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    public StorageUpdateDelegate del = ProgramState.getSingleton();
+
     @Override
     public void hasLoadedJobs(List<JobPresented> jobs) {
         ProgramState.getSingleton().jobsListed = jobs;
+        del.jobsDidUpdate();
         //TODO: tell ui to refresh the jobs listing page
     }
 

@@ -11,14 +11,14 @@ import com.example.codeexp.backend.model.ProgramState;
 public class AcceptJobCommand {
     private EnterpriseProfile enterprise;
     private JobAccepted job;
-    private Profile profile;
+    private IndividualProfile profile;
 
     public AcceptJobCommand(EnterpriseProfile enterprise, JobAccepted job, IndividualProfile profile) {
         assert job != null : "null job passed";
 
         this.enterprise = enterprise;
         this.job = job;
-        this.profile = ProgramState.currentProfile;
+        this.profile = (IndividualProfile) ProgramState.getSingleton().currentProfile;
         bindIndividual();
     }
 
